@@ -6,7 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface DogApi {
-
     @GET("breeds/list/all")
     suspend fun getListAllBreeds(): BreedsData
 

@@ -39,7 +39,7 @@ object AppModule {
             .create(DogApi::class.java)
     }
 
-    //Build the two table room database to cash breeds list and save favorite dog
+    //Build the two table room database to cache breeds list and save favorite dog
     @Provides
     @Singleton
     fun provideSingletonBreedsDatabase(app: Application): DogsDatabase {
