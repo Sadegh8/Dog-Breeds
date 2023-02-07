@@ -1,4 +1,4 @@
-package com.example.dogbreeds.ui.favorite
+package com.example.dogbreeds.ui.favorite.data
 
 import com.example.dogbreeds.domain.model.FavoriteDog
 import com.example.dogbreeds.ui.favorite.data.FilterData

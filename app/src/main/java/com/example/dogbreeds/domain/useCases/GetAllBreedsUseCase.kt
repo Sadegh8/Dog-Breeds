@@ -27,12 +27,13 @@ class GetAllBreedsUseCase @Inject constructor(
             try {
                 val isNetworkConnected = context.checkNetwork
                 if (isNetworkConnected) {
-                    emit(Resource.Loading())
                     repository.refreshList()
                     breeds = repository.getAllBreeds()
                     if (breeds.isNotEmpty()) {
                         emit(Resource.Success(breeds))
                     }
+                } else {
+                    emit(Resource.Error("No internet!"))
                 }
 
             } catch (e: HttpException) {
@@ -41,7 +42,7 @@ class GetAllBreedsUseCase @Inject constructor(
                 emit(Resource.Error("Couldn't reach server. Check your internet connection."))
             }
 
-        }else {
+        } else {
             emit(Resource.Success(breeds))
         }
 

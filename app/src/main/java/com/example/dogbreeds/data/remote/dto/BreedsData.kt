@@ -1,14 +1,14 @@
 package com.example.dogbreeds.data.remote.dto
 
-import com.example.dogbreeds.data.database.NetworkBreeds
+import com.example.dogbreeds.data.database.BreedsEntity
 
 data class BreedsData(
     val message: Map<String, List<String>>
 )
 
-fun BreedsData.toNetworkBreeds(): List<NetworkBreeds> {
+fun BreedsData.toBreedsEntity(): List<BreedsEntity> {
     return this.message.map {
-        NetworkBreeds(
+        BreedsEntity(
             breedName = it.key,
             breedSubNames = it.value
         )

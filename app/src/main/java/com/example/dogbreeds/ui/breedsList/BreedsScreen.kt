@@ -49,7 +49,7 @@ fun BreedsScreen(
                 CircularProgressIndicator()
             }
             state.error.isNotEmpty() -> {
-                Text(text = "Error getting Data!")
+                Text(text = "Error in getting data!")
             }
             else -> {
                 LazyColumn(modifier = Modifier.fillMaxSize(), state = rememberLazyListState()) {

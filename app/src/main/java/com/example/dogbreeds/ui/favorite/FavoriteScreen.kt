@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.dogbreeds.ui.common.BreedImgItem
 import com.example.dogbreeds.ui.favorite.components.FilterMenu
+import com.example.dogbreeds.ui.favorite.data.FavBreedsState
 import com.example.dogbreeds.utils.Utils
 
 
@@ -48,7 +49,7 @@ fun FavoriteScreen(
 
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         if (state.isEmpty) {
-            Text(text = "There is nothing here!")
+            Text(text = "There is nothing to see here!")
         } else {
             state.breeds.let { breed ->
                 LazyVerticalGrid(

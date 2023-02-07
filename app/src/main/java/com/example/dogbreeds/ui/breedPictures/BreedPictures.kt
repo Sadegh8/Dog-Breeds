@@ -67,5 +67,5 @@ fun BreedPictures(
 @Composable
 fun BreedPicturesPreview() {
     BreedPictures(state = BreedState(breeds = Utils.dummyBreed.first()),
-        onTapItem = { s, s1 -> })
+        onTapItem = { _, _ -> })
 }

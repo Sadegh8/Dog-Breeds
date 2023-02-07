@@ -1,17 +1,12 @@
 package com.example.dogbreeds.data.repository
 
-import android.util.Log
 import com.example.dogbreeds.data.database.DogsDatabase
-import com.example.dogbreeds.data.database.favorite.FavoriteData
-import com.example.dogbreeds.data.database.favorite.toFavoriteDog
 import com.example.dogbreeds.data.database.toBreed
 import com.example.dogbreeds.data.remote.DogApi
-import com.example.dogbreeds.data.remote.dto.toNetworkBreeds
+import com.example.dogbreeds.data.remote.dto.toBreedsEntity
 import com.example.dogbreeds.domain.model.Breed
-import com.example.dogbreeds.domain.model.FavoriteDog
 import com.example.dogbreeds.domain.repository.BreedsRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -24,7 +19,7 @@ class BreedsRepositoryImpl
     override suspend fun refreshList() {
         withContext(Dispatchers.IO) {
             val breedsList = api.getListAllBreeds()
-            database.breedsDao.insertAll(breedsList.toNetworkBreeds())
+            database.breedsDao.insertAll(breedsList.toBreedsEntity())
         }
     }
 

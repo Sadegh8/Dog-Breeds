@@ -10,6 +10,7 @@ import com.example.dogbreeds.data.database.DogsDatabase
 import com.example.dogbreeds.data.database.favorite.toFavoriteDog
 import com.example.dogbreeds.domain.model.FavoriteDog
 import com.example.dogbreeds.domain.useCases.FavoriteUseCase
+import com.example.dogbreeds.ui.favorite.data.FavBreedsState
 import com.example.dogbreeds.ui.favorite.data.FilterData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -59,6 +60,7 @@ class FavoriteViewModel @Inject constructor(
                 allChecked.remove(it.item)
             }
         }
+
         breedsState = breedsState.copy(breeds = allFave.filter {
             allChecked.contains(it.breedName)
         })

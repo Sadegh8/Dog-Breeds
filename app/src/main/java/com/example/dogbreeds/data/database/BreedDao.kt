@@ -9,9 +9,9 @@ import androidx.room.Query
 interface BreedDao {
 
     @Query("SELECT * from breeds_table ORDER BY breedName ASC")
-    suspend fun getBreeds(): List<NetworkBreeds>
+    suspend fun getBreeds(): List<BreedsEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(breeds: List<NetworkBreeds>)
+    fun insertAll(breeds: List<BreedsEntity>)
 
 }

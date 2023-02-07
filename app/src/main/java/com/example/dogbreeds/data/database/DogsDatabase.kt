@@ -8,7 +8,7 @@ import com.example.dogbreeds.data.database.favorite.FavoriteDao
 import com.example.dogbreeds.data.database.favorite.FavoriteData
 
 @Database(
-    entities = [NetworkBreeds::class, FavoriteData::class],
+    entities = [BreedsEntity::class, FavoriteData::class],
     version = 1
 )
 @TypeConverters(StringListConverter::class)
