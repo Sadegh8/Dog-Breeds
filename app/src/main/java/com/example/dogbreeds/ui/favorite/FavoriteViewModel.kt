@@ -28,6 +28,10 @@ class FavoriteViewModel @Inject constructor(
     private var allFave = mutableListOf<FavoriteDog>()
 
     init {
+        getState()
+    }
+
+    private fun getState(){
         viewModelScope.launch {
             database.favoriteDao.getAllFavoriteDogs().collect { result ->
                 if (result.isEmpty()) {

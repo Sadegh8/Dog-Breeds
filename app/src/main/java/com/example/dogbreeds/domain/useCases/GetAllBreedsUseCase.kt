@@ -5,6 +5,7 @@ import com.example.dogbreeds.data.common.Resource
 import com.example.dogbreeds.domain.model.Breed
 import com.example.dogbreeds.domain.repository.BreedsRepository
 import com.example.dogbreeds.utils.Utils.checkNetwork
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -23,6 +24,7 @@ class GetAllBreedsUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Breed>>> = flow {
         var breeds = repository.getAllBreeds()
         if (breeds.isEmpty()) {
+
             emit(Resource.Loading())
             try {
                 val isNetworkConnected = context.checkNetwork
@@ -31,6 +33,8 @@ class GetAllBreedsUseCase @Inject constructor(
                     breeds = repository.getAllBreeds()
                     if (breeds.isNotEmpty()) {
                         emit(Resource.Success(breeds))
+                    } else {
+                        emit(Resource.Error("No internet!"))
                     }
                 } else {
                     emit(Resource.Error("No internet!"))
